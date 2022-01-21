@@ -1,0 +1,243 @@
+/* rem means related to root element or html element */
+/* margin auto will work only when element display is block */
+/* by default img have inline display */
+/* if you have used "before selector" with element than content may oerflowed from     element so u need to set element position: relative like in example of navbar and selector navbar::before */
+/* reset CSS */
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+/* css variable */
+:root{
+    --navbar-height: 59px;
+}
+
+/* Navigation Bar */
+#navbar{
+    display: flex;
+    align-items: center;
+    position: sticky;  /* to put it above the parent which */
+    top: 0px;
+}
+#navbar::before{
+    content: "";
+    background-color: black;
+    position: absolute;     /* position related to its most parent */
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.4;
+}
+
+/* NavigationBar: logo and image */
+#logo{
+    margin: 10px 30px;
+    /* margin-left: 25px; */
+}
+#logo img{
+    margin: 3px 5px;
+    /* width: 80px; */
+    height: 60px;
+}
+
+/* NavigationBar: list styling */
+#navbar ul{
+    
+    margin-left: 25px;
+    display: flex;
+    font-family: 'Baloo Bhai 2', cursive;
+}
+#navbar ul li{
+    list-style: none;
+    font-size: 1.3rem;
+}
+#navbar ul li a{
+    /* by default inline */
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 3px 22px;
+    border-radius: 20px;
+}
+#navbar ul li a:hover{
+    /* by default inline */
+    color: black;
+    background-color: white;
+}
+
+/* Home Section */
+#home{
+    /* border: 2px solid black; */
+    display: flex;
+    flex-direction: column;
+    /* position: relative; */
+    padding: 3px 200px;
+    height:317px;
+    /* height: 400px; */
+    /* margin-bottom: 18px; */
+    
+    align-items: center;
+    justify-content: center;
+}
+#home::before{
+    content: "";
+    position: absolute;     /* position related to its most parent */
+    background: url("images/Salad1.jpg") no-repeat center center/cover;
+    top: 0px;       /* so that image shift above no margin left */
+    left: 0px;
+    /* sometimes it give problem when u give height in % and u do inspect so acc. screen size it take the % height, so try to give in pixels so that it remain unchanged even you do inspect */
+
+    height: 415px;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.89;
+}
+
+#home h1{
+    color: white;
+    text-align: center;
+    font-family: 'Bree Serif', serif;
+}
+
+#home p{
+    color: white;
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: 'Bree Serif', serif;
+}
+/* Services Section */
+#services{
+    margin: 15px 30px;
+    display: flex;
+
+
+}
+#services .box{
+    border: 2px solid brown;
+    margin: 0px 5px;
+    padding: 20px;
+    border-radius: 28px;
+    background-color: rgb(235 227 227);
+}
+#services .box img{
+    display: block;
+    margin: auto;
+    height: 160px;
+    
+}
+
+#services .box p{
+    font-family: 'Bree Serif', serif;
+} 
+#services{}
+#services{}
+
+/* clients Section */
+#client-section{
+    margin-top: 34px;
+    position: relative;
+    height: auto;
+}
+
+#client-section::before{
+    content: "";
+
+    /* Most Imp */
+    /* position: absolute means acc. to parent so the parent is client-section means background to parent, not make any sense if you give position: relative b/c u are using background images so there must be reference where you want that background */
+
+    /* if your parent(client-section) position is static(which is by default) so background image will be fully shown no matter whats the size of parent u have decided but if you have set the parent(client-section) position to relative then background will be shown acc to parent size  */
+
+    position: absolute;
+    background: url("Images/bgveg.jpeg") no-repeat center center/cover;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+}
+#clients{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.client-item{
+    padding: 34px;
+}
+#clients img{
+    height: 100px;
+}
+
+/* Contact us */
+#contact{
+    /* already h1 in centre b/c of class="h-primary center" */
+    position: relative;
+}
+#contact::before{
+    content: "";
+    position: absolute;
+    background: url("images/bgcontactus.jpeg") no-repeat center center/cover;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+}
+#contact-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 34px;
+}
+#contact-box label{
+    font-size: 1rem;
+    font-family: 'Bree Serif', serif;
+ 
+ }
+#contact-box input,
+#contact-box textarea{
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 9px;
+    font-size: 1.1rem;
+} 
+#contact-box form{
+    width: 40%;
+}
+
+/* footer */
+footer{
+    background: black;
+    color: white;
+    padding: 9px 20px;
+}
+/* Utiity Classes */
+.h-primary{
+    font-family: "Bree Serif", serif;
+    font-size: 2.5rem;
+    padding: 30px;
+
+}
+
+.h-secondary{
+    font-family: 'Bree Serif', serif;
+    font-size: 1.6rem;
+    padding: 12px;
+}
+.btn{
+    /* by default padding of buttons are irregular */
+    margin: 10px 5px;
+    padding: 6px 20px;
+    border: 2px solid white;
+    background-color: rgb(133, 59, 59);
+    color: white;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+.center{
+    text-align: center;
+}
